@@ -1,0 +1,167 @@
+@import "compass";
+
+
+// 基本色
+$baseColor: #fafff2; //薄味緑
+$keyColor: #ff5b3a; //赤が強いオレンジ
+$subColor: #eeff00; //緑がかった黄色
+$fontColor: #282828;
+
+// ベース
+html { font-size:62.5%; }
+
+body {
+  color: $fontColor;
+  background-color: $subColor;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mobile-hide {
+  display: none;
+}
+
+#image {
+  .main-image {
+    background-image: url("../images/fd401544.jpg");
+    height: 250px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+  }
+  h1 {
+    position: absolute;
+    top: 5px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: $fontColor;
+  }
+}
+
+#test {
+  width: 90%;
+  @extend .block-center;
+  padding: 20px;
+  .test-question {
+    @extend .block-center;
+    margin-bottom: 10px;
+    width: 100%;
+    // height: 80px;
+    border: solid 1px $keyColor;
+    background-color: $baseColor;
+    @include border-radius(15px);
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(row);
+     h2 {
+      width: 15%;
+      margin: 0;
+      padding: 0;
+      font-size: 1.2em;
+      text-align: center;
+      color: #FFF;
+      background-color: $keyColor;
+      @include box-sizing(border-box);
+      @include border-radius(15px);
+    }
+    p {
+      width: 85%;
+      margin: 4px;
+      padding: 0;
+      text-align: center;
+      @include box-sizing(border-box);
+    }
+  }
+  .container {
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+    .test-box {
+      width: 95%;
+      @extend .block-center;
+      margin-top: 15px;
+      padding: 5px 0 0 0;
+      background-color: $baseColor;
+      @include border-radius(5px);
+      .test-choice {
+        border-left: solid 5px $keyColor;
+        h4 {
+          margin: 0 0 0 8px;
+        }
+      }
+      p {
+        padding: 5px;
+        margin: 0px;
+      }
+    }
+  }
+}
+
+#next {
+  @extend .block-center;
+  background-color: $baseColor;
+  text-align: center;
+  padding: 10px;
+  p {
+    font-size: 0.9em;
+    margin: 0;
+  }
+  button {
+    margin: 10px 0;
+    padding: 3px 10px;
+    font-size: 1rem;
+    color: #FFF;
+    background-color: $keyColor;
+    @include box-sizing(border-box);
+    @include border-radius(15px);
+  }
+}
+
+// 以下PC表示(768px以上)の場合 ////////////////////////////
+@media (min-width: 768px) {
+
+  .mobile-hide {
+    display: block;
+  }
+
+  #image {
+    .main-image {
+      height: 500px;
+    }
+  }
+
+  #test {
+    .container {
+      @include display-flex;
+      justify-content: space-between;
+      @include flex-direction(row);
+      .test-box {
+        margin: 0 10px;
+      }
+      .test-answer {
+        @include opacity(0.1);
+        &:hover, :visited  {
+          @include opacity(1);
+        }
+      }
+    }
+  }
+
+
+
+}
